@@ -1,0 +1,300 @@
+@import 'css/reset';
+@import 'scss/fonts.scss';
+
+.container {
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+// Burger
+.burger-box {
+    display: none;
+}
+
+// Modal Video
+.modal_video__wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+
+    .modal_video__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
+
+    video {
+        width: 80%;
+        height: auto;
+        max-height: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 3;
+    }
+
+    .modal_video__btn_close {
+        position: absolute;
+        right: 5%;
+        top: 5%;
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        background: none;
+        border: none;
+        transition: background 0.3s;
+        z-index: 3;
+
+        &::before,
+        &::after {
+            content: '';
+            width: 30px;
+            height: 5px;
+            background: rgb(242, 225, 211);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transition: background 0.3s;
+
+        }
+
+        &::before {
+            transform: translate(-50%, -50%) rotate(40deg);
+        }
+
+        &::after {
+            transform: translate(-50%, -50%) rotate(-40deg);
+        }
+    }
+
+    .modal_video__btn_close:hover {
+        background: rgb(242, 225, 211);
+        transition: 0.3s;
+
+        &::before,
+        &::after {
+            background: #765f52;
+            transition: 0.3s;
+        }
+    }
+}
+
+
+// video {
+//     pointer-events: none;
+//     position: fixed;
+//     min-width: 100%;
+//     min-height: 100vh;
+//     bottom: 0;
+//     right: 0;
+//     object-fit: cover;
+// }
+
+header {
+    box-shadow: 0px 10px 20px 1px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 2;
+
+    .nav {
+        padding: 20px 0;
+        background-color: rgb(242, 225, 211);
+        box-shadow: 0px 10px 20px 1px rgba(0, 0, 0, 0.5);
+        position: relative;
+        z-index: 2;
+
+        ul {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+
+            .nav__link {
+                padding: 10px 10px;
+                text-decoration: none;
+                text-transform: uppercase;
+                font: 17px 'ArialNarrowRegular', sans-serif;
+                // color: rgb(195, 173, 146);
+                color: rgb(118, 95, 82);
+                letter-spacing: 2px;
+                position: relative;
+                cursor: pointer;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    height: 2px;
+                    width: 0;
+                    left: 50%;
+                    top: 100%;
+                    background: rgb(195, 173, 146);
+                    // transform: scale(16, 1) translate(-50%);
+                    // width: 2px;
+                }
+
+                &:hover::after {
+                    transition: transform 0.5s;
+                    width: 2px;
+                    transform: scale(16, 1) translate(-6%);
+                }
+            }
+
+            img {
+                width: 150px;
+            }
+        }
+    }
+
+    .header__content {
+        background-color: rgb(123, 24, 13);
+        // background-color: rgb(178, 45, 30);
+        padding: 200px 0;
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+
+
+        .header__title {
+            font: 40px 'ArialNarrowRegular', sans-serif;
+            max-width: 400px;
+            // color: rgb(43, 49, 41);
+            color: rgb(242, 225, 211);
+        }
+    }
+}
+
+
+
+.main-content {
+    position: sticky;
+    height: 100vh;
+    bottom: 0;
+
+    .video_shadow {
+        position: absolute;
+        background: black;
+        height: 100%;
+        width: 100%;
+        opacity: 0.3;
+        transition: 1s;
+        z-index: 3;
+        pointer-events: none;
+    }
+
+    video {
+        pointer-events: none;
+        min-width: 100%;
+        min-height: 100vh;
+        object-fit: cover;
+    }
+
+    .btn_video__link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        border: none;
+        background: none;
+        position: absolute;
+        bottom: 5%;
+        right: 5%;
+        color: white;
+        opacity: 0;
+        transition: opacity 0.3s;
+        // z-index: 3;
+
+        img {
+            width: 40px;
+            margin-top: 3px;
+            pointer-events: none;
+        }
+
+        span {
+            margin-left: 10px;
+            pointer-events: none;
+        }
+    }
+
+
+}
+
+section {
+    background-color: rgb(242, 225, 211);
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            margin: 40px 0;
+
+            &:nth-child(even) {
+                margin: 110px 0;
+            }
+
+            &:nth-child(odd) {
+                margin: 70px 0;
+            }
+
+            .project__wrapper {
+                background: white;
+            }
+
+            .h400 {
+                width: 500px;
+                height: 400px;
+            }
+
+            .h500 {
+                width: 500px;
+                height: 500px;
+            }
+
+            .h700 {
+                width: 500px;
+                height: 600px;
+            }
+
+            .h800 {
+                width: 500px;
+                height: 700px;
+            }
+
+            .card__title {
+                margin-top: 10px;
+                font: 33px 'ArialNarrowRegular', sans-serif;
+                color: rgb(118, 95, 82);
+            }
+
+            .card__text {
+                margin-top: 5px;
+                font: 22px 'ArialNarrowRegular', sans-serif;
+                max-width: 400px;
+                color: rgb(118, 95, 82);
+            }
+        }
+
+
+
+
+
+
+
+    }
+
+
+}
